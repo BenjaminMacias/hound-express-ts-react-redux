@@ -65,10 +65,31 @@
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 768px) and (min-width: 481px) {
+  .guide-list__table {
+    font-size: 0.6rem;
+    table-layout: fixed;
+    word-break: break-word;
+  }
+
   .guide-list__table th,
   .guide-list__table td {
-    font-size: 0.6rem;
+    padding: 0.2rem 0.3rem; 
+    white-space: normal;
+    word-wrap: break-word;
+    text-align: center;
+  }
+
+  .guide-list__actions {
+    flex-direction: column;
+    align-items: center;
+
+    button {
+      padding: 0.15rem 0.3rem;
+      font-size: 0.5rem;
+      width: 100%;
+      margin-bottom: 0.25rem;
+    }
   }
 
   .guide-list__title {
@@ -76,12 +97,29 @@
   }
 }
 @media screen and (max-width: 480px) {
-  .guide-list__table th,
-  .guide-list__table td {
+  .guide-list__table {
     font-size: 0.3rem;
+
+    th,
+    td {
+      padding: 0.3rem 0.4rem;
+      word-break: break-word; 
+      white-space: normal; 
+    }
   }
 
   .guide-list__title {
     font-size: 1.25rem;
+  }
+
+  .guide-list__actions {
+    flex-direction: column;
+    align-items: stretch;
+
+    button {
+      padding: 0.1rem 0.5rem;
+      font-size: 0.25rem;
+      width: 100%;
+    }
   }
 }

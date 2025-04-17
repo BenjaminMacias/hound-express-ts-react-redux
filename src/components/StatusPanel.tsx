@@ -6,7 +6,7 @@ const StatusPanel: React.FC = () => {
   const guides = useSelector((state: RootState) => state.guides.guides);
 
   // Cálculos internos (total no se muestra)
-  const total = guides.length;
+ // const total = guides.length;
   const pending = guides.filter((g) => g.status === "Pendiente").length;
   const inTransit = guides.filter((g) => g.status === "En tránsito").length;
   const delivered = guides.filter((g) => g.status === "Entregado").length;
