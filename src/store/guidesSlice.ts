@@ -1,5 +1,5 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Guide } from '../interfaces/Guide';
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { Guide } from "../interfaces/Guide"; 
 
 interface GuidesState {
   guides: Guide[];
@@ -16,7 +16,7 @@ const initialState: GuidesState = {
 };
 
 const guidesSlice = createSlice({
-  name: 'guides',
+  name: "guides",
   initialState,
   reducers: {
     addGuide: (state, action: PayloadAction<Guide>) => {

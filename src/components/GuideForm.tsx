@@ -103,6 +103,7 @@ const GuideForm: React.FC = () => {
         onChange={handleChange}
         placeholder="Destinatario"
       />
+      
       <input
         type="date"
         name="creationDate"
