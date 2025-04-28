@@ -1,26 +1,35 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import { RootState } from "../store/store";
 
-const StatusPanel: React.FC = () => {
-  const guides = useSelector((state: RootState) => state.guides.guides);
+// Props del componente: totales de cada estado
+interface Props {
+  total: number;
+  inTransit: number;
+  delivered: number;
+}
 
-  // Cálculos internos (total no se muestra)
- // const total = guides.length;
-  const pending = guides.filter((g) => g.status === "Pendiente").length;
-  const inTransit = guides.filter((g) => g.status === "En tránsito").length;
-  const delivered = guides.filter((g) => g.status === "Entregado").length;
-
+// Panel de estado general del sistema
+const StatusPanel: React.FC<Props> = ({ total, inTransit, delivered }) => {
   return (
-    <section className="status-panel" id="status">
-      <div className="status-panel__card">
-        Pendientes: {pending}
-      </div>
-      <div className="status-panel__card">
-        En tránsito: {inTransit}
-      </div>
-      <div className="status-panel__card">
-        Entregadas: {delivered}
+    <section
+      className="status-panel"
+      id="status"
+      role="region"
+      aria-labelledby="status-panel-title"
+    >
+      <h2 id="status-panel-title" className="status-panel__title">
+        Estado General de las Guías
+      </h2>
+
+      <div className="status-panel__card-container">
+        <div className="status-panel__card">
+          Guías activas: {total}
+        </div>
+        <div className="status-panel__card">
+          En tránsito: {inTransit}
+        </div>
+        <div className="status-panel__card">
+          Entregadas: {delivered}
+        </div>
       </div>
     </section>
   );

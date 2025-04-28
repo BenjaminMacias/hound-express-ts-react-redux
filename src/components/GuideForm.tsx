@@ -55,9 +55,9 @@ const GuideForm: React.FC = () => {
       destination: destination.trim(),
       recipient: recipient.trim(),
       creationDate: creationDate.trim(),
-      status: "Pendiente", // será también usado por el slice
+      status: "Pendiente",
       lastUpdate: creationDate.trim(),
-      history: [], // se sobrescribirá con la entrada inicial en el slice
+      history: [],
     };
 
     dispatch(addGuide(newGuide));
@@ -75,43 +75,70 @@ const GuideForm: React.FC = () => {
 
   return (
     <form className="form" onSubmit={handleSubmit}>
-      <h2>Registrar Nueva Guía</h2>
+      <h2 className="form__title">Registrar Nueva Guía</h2>
 
-      {error && <p className="form__error">{error}</p>}
+      {error && <p className="form__error" role="alert">{error}</p>}
 
-      <input
-        name="trackingNumber"
-        value={formData.trackingNumber}
-        onChange={handleChange}
-        placeholder="Número de guía"
-      />
-      <input
-        name="origin"
-        value={formData.origin}
-        onChange={handleChange}
-        placeholder="Origen"
-      />
-      <input
-        name="destination"
-        value={formData.destination}
-        onChange={handleChange}
-        placeholder="Destino"
-      />
-      <input
-        name="recipient"
-        value={formData.recipient}
-        onChange={handleChange}
-        placeholder="Destinatario"
-      />
-      
-      <input
-        type="date"
-        name="creationDate"
-        value={formData.creationDate}
-        onChange={handleChange}
-      />
+      <div className="form__group">
+        <label htmlFor="trackingNumber">Número de guía</label>
+        <input
+          id="trackingNumber"
+          name="trackingNumber"
+          value={formData.trackingNumber}
+          onChange={handleChange}
+          placeholder="Número de guía"
+        />
+      </div>
 
-      <button type="submit">Registrar</button>
+      <div className="form__group">
+        <label htmlFor="origin">Origen</label>
+        <input
+          id="origin"
+          name="origin"
+          value={formData.origin}
+          onChange={handleChange}
+          placeholder="Origen"
+        />
+      </div>
+
+      <div className="form__group">
+        <label htmlFor="destination">Destino</label>
+        <input
+          id="destination"
+          name="destination"
+          value={formData.destination}
+          onChange={handleChange}
+          placeholder="Destino"
+        />
+      </div>
+
+      <div className="form__group">
+        <label htmlFor="recipient">Destinatario</label>
+        <input
+          id="recipient"
+          name="recipient"
+          value={formData.recipient}
+          onChange={handleChange}
+          placeholder="Destinatario"
+        />
+      </div>
+
+      <div className="form__group">
+        <label htmlFor="creationDate">Fecha de registro</label>
+        <input
+          type="date"
+          id="creationDate"
+          name="creationDate"
+          value={formData.creationDate}
+          onChange={handleChange}
+        />
+      </div>
+
+      <div className="form__actions">
+        <button type="submit" className="form__button">
+          Registrar
+        </button>
+      </div>
     </form>
   );
 };

@@ -20,7 +20,7 @@ const HistoryModal: React.FC = () => {
   if (!isOpen || !guide) return null;
 
   return (
-    <div className="modal-overlay">
+    <div className="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
       <div className="modal-content">
         <button
           className="modal-close"
@@ -30,20 +30,20 @@ const HistoryModal: React.FC = () => {
           &times;
         </button>
 
-        <h3 className="modal-title">
+        <h3 id="modal-title" className="modal-title">
           Historial de la guía: <strong>{guide.id}</strong>
         </h3>
 
         {guide.history.length === 0 ? (
-          <p className="modal-empty">No hay historial disponible.</p>
+          <p className="modal-empty" role="alert">No hay historial disponible.</p>
         ) : (
           <table className="modal-table">
             <thead>
               <tr>
-                <th>Fecha</th>
-                <th>Estado</th>
-                <th>Ubicación</th>
-                <th>Observaciones</th>
+                <th scope="col">Fecha</th>
+                <th scope="col">Estado</th>
+                <th scope="col">Ubicación</th>
+                <th scope="col">Observaciones</th>
               </tr>
             </thead>
             <tbody>

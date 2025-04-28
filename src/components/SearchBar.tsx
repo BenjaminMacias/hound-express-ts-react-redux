@@ -30,26 +30,35 @@ const SearchBar: React.FC = () => {
   };
 
   return (
-    <section className="search-section">
+    <section className="search-section" role="search" aria-label="Buscar guía">
       <h2 className="search-section__title">Buscar guía</h2>
 
       <div className="search-bar">
         <input
           type="text"
           placeholder="Buscar por número de guía..."
+          aria-label="Buscar número de guía"
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={handleKeyDown}
           className="search-bar__input"
         />
-        <button className="search-bar__button" onClick={handleSearch}>
+        <button
+          className="search-bar__button"
+          onClick={handleSearch}
+          aria-label="Buscar guía"
+        >
           🔍
         </button>
       </div>
 
       {input && (
         <div className="search-bar__link-container">
-          <button className="search-bar__clear-link" onClick={handleClear}>
+          <button
+            className="search-bar__clear-link"
+            onClick={handleClear}
+            aria-label="Mostrar todas las guías"
+          >
             Mostrar todas las guías
           </button>
         </div>
